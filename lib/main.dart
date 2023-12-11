@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'dart:js' as js;
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Hub());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+double logoWidth = 50;
+
+class Hub extends StatelessWidget {
+  const Hub({super.key});
 
   // This widget is the root of your application.
   @override
@@ -13,113 +16,192 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        colorSchemeSeed: Colors.grey,
+        fontFamily: 'Roboto',
+        scrollbarTheme: ScrollbarThemeData(
+          thumbColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HubPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+class HubPage extends StatefulWidget {
+  const HubPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HubPage> createState() => HubPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class HubPageState extends State<HubPage> {
+  Image logo = Image.asset(
+    'images/GeddesWorksCutout.png',
+    width: logoWidth,
+  );
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  Image logoMain = Image.asset(
+    'images/GeddesWorksCutout.png',
+    width: 70,
+  );
+
+  Image headshot = Image.asset(
+    'images/headshot.jpg',
+    width: 70,
+    height: 70,
+    fit: BoxFit.cover,
+  );
+
+  Image cultsLogo = Image.asset(
+    'images/cults.png',
+    width: logoWidth,
+  );
+  Image liInLogo = Image.asset(
+    'images/linked.png',
+    width: logoWidth,
+  );
+  Image githubLogo = Image.asset(
+    'images/github-mark.png',
+    width: logoWidth,
+  );
+
+  Image youtube = Image.asset(
+    'images/yt.png',
+    width: logoWidth,
+  );
+  Image printer = Image.asset(
+    'images/3dPrinter.png',
+    width: logoWidth,
+  );
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: screenWidth > 300 ? 300 : screenWidth * .9,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ClipOval(
+                      child: headshot,
+                    ),
+                    logoMain,
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Collin Geddes",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.grey[500],
+                  fontFamily: 'Inconsolata',
+                ),
+              ),
+              Text(
+                "@GeddesWorks",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.grey[500],
+                  fontFamily: 'Inconsolata',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              button(
+                logo,
+                "Home Site",
+                "https://www.geddesworks.com",
+                screenWidth,
+              ),
+              button(
+                printer,
+                "3D Print Shop",
+                "https://3dshop.geddesworks.com",
+                screenWidth,
+              ),
+              button(
+                youtube,
+                "Youtube",
+                "https://www.youtube.com/channel/UCl6UJ-zSBmVH_TGAgRP-gbw",
+                screenWidth,
+              ),
+              button(
+                cultsLogo,
+                "Cults 3D",
+                "https://cults3d.com/en/users/GeddesWorks/3d-models",
+                screenWidth,
+              ),
+              button(
+                liInLogo,
+                "LinkedIn",
+                "https://www.linkedin.com/in/collingeddes",
+                screenWidth,
+              ),
+              button(
+                githubLogo,
+                "GitHub",
+                "https://github.com/GeddesWorks",
+                screenWidth,
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget button(Image logo, String text, String url, double screenWidth) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[600], // Set the background color
+
+          borderRadius:
+              BorderRadius.circular(25.0), // Optional: add border radius
+        ),
+        alignment: Alignment.center,
+        width: screenWidth > 300 ? 300 : screenWidth * .9,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(100),
+          onTap: () {
+            js.context.callMethod('open', [url]);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                const SizedBox(width: 10),
+                logo,
+                const SizedBox(width: 10),
+                Text(
+                  text,
+                  style: const TextStyle(fontSize: 20),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

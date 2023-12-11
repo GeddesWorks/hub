@@ -35,7 +35,7 @@ jobs:
         git init
         git config user.name  "GeddesWorks"
         git config user.email "collin.geddes@gmail.com"
-        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/GeddesWorks/shop.git
+        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/GeddesWorks/hub.git
         git checkout -b gh-pages
         echo "hub.geddesworks.com" > CNAME
         git add .

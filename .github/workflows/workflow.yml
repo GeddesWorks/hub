@@ -31,7 +31,7 @@ jobs:
       # working-directory: ./hub
     - name: Deploy
       run: |
-        cd hub/build/web
+        cd build/web
         git init
         git config user.name  "GeddesWorks"
         git config user.email "collin.geddes@gmail.com"

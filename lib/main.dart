@@ -14,7 +14,7 @@ class Hub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'GeddesWorks',
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: Colors.grey,

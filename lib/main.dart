@@ -140,7 +140,7 @@ class HubPageState extends State<HubCPage> {
               button(
                 logo,
                 "Home Site",
-                "https://www.geddesworks.com/c",
+                "https://www.geddesworks.com/#/c",
                 screenWidth,
               ),
               button(

@@ -79,6 +79,15 @@ class HubPageState extends State<HubCPage> {
     width: logoWidth,
   );
 
+  Image etsy = Image.asset(
+    'images/Etsy.png',
+    width: logoWidth,
+  );
+  Image maker = Image.asset(
+    'images/bambu.png',
+    width: logoWidth,
+  );
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -131,7 +140,7 @@ class HubPageState extends State<HubCPage> {
               button(
                 logo,
                 "Home Site",
-                "https://www.geddesworks.com",
+                "https://www.geddesworks.com/c",
                 screenWidth,
               ),
               button(
@@ -141,11 +150,19 @@ class HubPageState extends State<HubCPage> {
                 screenWidth,
               ),
               button(
+                etsy,
+                "Etsy",
+                "https://geddesworks.etsy.com",
+                screenWidth,
+              ),
+              button(
                 youtube,
                 "Youtube",
                 "https://www.youtube.com/channel/UCl6UJ-zSBmVH_TGAgRP-gbw",
                 screenWidth,
               ),
+              button(maker, "Maker World", "https://www.geddesworks.com/maker",
+                  screenWidth),
               button(
                 cultsLogo,
                 "Cults 3D",
@@ -219,6 +236,15 @@ class HubGPageState extends State<HubGPage> {
     width: logoWidth,
   );
 
+  Image etsy = Image.asset(
+    'images/Etsy.png',
+    width: logoWidth,
+  );
+  Image maker = Image.asset(
+    'images/bambu.png',
+    width: logoWidth,
+  );
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -270,21 +296,23 @@ class HubGPageState extends State<HubGPage> {
                 screenWidth,
               ),
               button(
+                etsy,
+                "Etsy",
+                "https://geddesworks.etsy.com",
+                screenWidth,
+              ),
+              button(
                 youtube,
                 "Youtube",
                 "https://www.youtube.com/channel/UCl6UJ-zSBmVH_TGAgRP-gbw",
                 screenWidth,
               ),
+              button(maker, "Maker World", "https://www.geddesworks.com/maker",
+                  screenWidth),
               button(
                 cultsLogo,
                 "Cults 3D",
                 "https://cults3d.com/en/users/GeddesWorks/3d-models",
-                screenWidth,
-              ),
-              button(
-                liInLogo,
-                "LinkedIn",
-                "https://www.linkedin.com/in/collingeddes",
                 screenWidth,
               ),
               button(

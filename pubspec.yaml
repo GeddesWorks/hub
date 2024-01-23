@@ -79,6 +79,8 @@ flutter:
     - images/welcomeImages/4.jpeg
     - images/welcomeImages/5.jpeg
     - images/headshot.jpg
+    - images/Etsy.png
+    - images/bambu.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
